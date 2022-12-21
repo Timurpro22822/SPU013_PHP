@@ -15,7 +15,17 @@ include($_SERVER['DOCUMENT_ROOT'].'/_header.php');
 ?>
 
 <h1 class="text-center">Вхід на сайт</h1>
-
+<form class="col-md-6 offset-md-3" enctype="multipart/form-data" method="post">
+    <div class="mb-3">
+        <label for="email" class="form-label">Електронна пошта</label>
+        <input type="email" class="form-control" id="email" name="email">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Пароль</label>
+        <input type="password" class="form-control" id="password" name="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Увійти</button>
+</form>
 <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
