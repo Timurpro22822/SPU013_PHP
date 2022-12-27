@@ -44,11 +44,15 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/options/connection_database.php');
                             <a href="product.php?id='.$id.'" class="btn btn-success">Купить</a>
                         </div>
                         <div class="mb-2 text-end">
+                            <a href="edit.php?id='.$id.'" class="btn btn-warning">Змінити</a>
+                        </div>
+                        <div class="mb-2 text-end">
                             <form action="delete.php">
                                 <input type="hidden" name="id">
-                                <td><input type="submit" name="btn_delete" class="btn btn-danger" value="Delete"/></td>
+                                <td><input type="submit" name="btn_delete" class="btn btn-danger" value="Видалити"/></td>
                             </form>
                         </div>
+                        
                     </div>
                 </div>
             </div>
