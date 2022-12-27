@@ -1,10 +1,13 @@
 <?php
+    /*Перевірка чи видає "Post"*/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "POST REQUEST SERVER";
+    /*Фіксування данних в змінну*/
     $name = $_POST['name'];
     $price = $_POST['price'];
     $description = $_POST['description'];
     include_once($_SERVER['DOCUMENT_ROOT'] . '/options/connection_database.php');
+    /*Вставка данних в базу*/
     $sql = 'INSERT INTO tbl_products (name, price, datecreate, description) VALUES (:name, :price, NOW(), :description);';
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':name', $name);
@@ -16,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $item = $dbh->query($sql)->fetch();
     $insert_id=$item['id'];
 
+    /*Вставка картінок(ми створювали іншу табличку в базі під картинки)*/
     $images = $_POST['images'];
     $count=1;
     foreach ($images as $base64) {

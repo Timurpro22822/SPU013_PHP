@@ -24,6 +24,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/options/connection_database.php');
                 from tbl_products as p, tbl_product_images as pi 
                 WHERE p.id=pi.product_id and pi.priority=1;
                 ";
+            /*Циклом виводимо всі продукти які в нас є в базі*/
             foreach ($dbh->query($sql) as $row)
             {
                 $id=$row['id'];

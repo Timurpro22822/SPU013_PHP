@@ -15,9 +15,11 @@
 include($_SERVER['DOCUMENT_ROOT'] . '/_header.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/options/connection_database.php');
 $id=$_GET['id'];
+/*Ініціалізація змінних*/
 $name='';
 $price='';
 $description='';
+/*Витягуємо з бази данні про продукт*/
 $sql = '
         SELECT id,name,price,description
         FROM tbl_products 
@@ -30,6 +32,7 @@ if($row=$stm->fetch()){
     $price=$row['price'];
     $description=$row['description'];
 }
+/*Витягуємо з бази картінки для продукта*/
 $sql = '
         SELECT pi.name
         FROM tbl_product_images pi 

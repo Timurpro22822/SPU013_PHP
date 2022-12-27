@@ -1,10 +1,14 @@
 <?php
+/*Не робоча Змінююча функція*/
+/*Перевірка чи "Post"*/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "POST REQUEST SERVER";
+    /*Фіксування данних в змінну*/
     $name = $_POST['name'];
     $price = $_POST['price'];
     $description = $_POST['description'];
     include_once($_SERVER['DOCUMENT_ROOT'] . '/options/connection_database.php');
+    /*Змінююча функція*/
     $sql = 'UPDATE tbl_products (name, price, datecreate, description) SET (:name, :price, NOW(), :description);';
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':name', $name);
@@ -16,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $item = $dbh->query($sql)->fetch();
     $insert_id=$item['id'];
 
+    /*Картінки*/
     $images = $_POST['images'];
     $count=1;
     foreach ($images as $base64) {
